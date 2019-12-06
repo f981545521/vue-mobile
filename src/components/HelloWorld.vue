@@ -1,13 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <van-button type="default">默认按钮</van-button>
+    <h3>{{message}}</h3>
+    <van-button type="default" @click="toIndexPage">去首页</van-button>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
@@ -17,9 +12,19 @@
 
 <script>
 export default {
+  data(){
+    return {
+      message: '守夜'
+    }
+  },
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    toIndexPage(){
+      console.info(process.env.VUE_APP_BASE_URL);
+    }
   }
 }
 </script>
